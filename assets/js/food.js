@@ -10,7 +10,7 @@ var results = document.getElementById("results")
 
 function dishName(data) {
 
-    for (var i = 0; i < data.meals, length; i++) {
+    for (var i = 0; i < data.meals.length; i++) {
         var meal = data.meals[i];
         var mealName = meal.strMeal;
 
@@ -19,20 +19,20 @@ function dishName(data) {
         results.appendChild(mealList);
 
         mealList.addEventListener("click", function (event) {
-            event,preventDefault();
+            event.preventDefault();
             var mealButton= event.target.textContent
           console.log(event.target)
-            createRecipebyName(drinkButton, data);
+            createRecipebyName(mealButton, data);
         });
     };
 
-    console.log(data)
+    console.log(data);
 };
-function createRecipebyName(drinkButton, data) {
+function createRecipebyName (mealButton, data) {
 
 
     for (var i = 0; i < data.meals.length; i++) {
-        if (mealButton === data.drinks[i].strMeal) {
+        if (mealButton === data.meals[i].strMeal) {
             var meal2 = data.meals[i];
             var glass = meal2.strGlass
             var ingredients = [meal2.strIngredient1, meal2.strIngredient2, meal2.strIngredient3,
@@ -43,7 +43,7 @@ function createRecipebyName(drinkButton, data) {
             meal2.strIngredient14, meal2.strIngredient15]
             // maybe create an array of ingredient list instead of one variable of each ingredient?
             // maybe same logic for meaures ?
-            ingredients = ingredients.filter(function(element) {
+            ingredients = ingredients.filter(function(element){
                 return element != null
             });
 
@@ -51,7 +51,7 @@ function createRecipebyName(drinkButton, data) {
                 strMeasure2, meal2.strMeasure3, meal2.strMeasure4,
             meal2.strMeasure5, meal2.strMeasure6, meal2.strMeasure7, meal2.strMeasure8, meal2.strMeasure9, meal2.strMeasure10, meal2.strMeasure11, meal2.streaMeasure12, meal2.strMeasure13, meal2.strMeasure14, meal2.strMeasure15]
 
-            measure = measure.filter(function (element) {
+            measure = measure.filter(function(element) {
                 return element != null
             });
 
@@ -62,25 +62,25 @@ function createRecipebyName(drinkButton, data) {
 
             var createRecipe = document.createElement("li")
             createRecipe.textContent = recipe;
-            results.appendChild(createRecipe);
-        
+            results.appendChild(createRecipe); };
+    }
         console.log(data)
     };
 
 
-    function dishNameFetch(name) {
+    function dishNameFetch (name) {
         fetch("https://themealdb.com/api/json/v1/1/search.php?s=" + name).then(function (response) {
             return response.json()
-        }).then(function (data) {
+        }).then(function(data) {
             dishName(data);
         });
         //createRecipebyName(data);
     };
 
 
-    dishNameButton.addEventListener("click", function (event) {
+    dishNameButton.addEventListener("click", function(event){
         if (dishNameInput.value !== "") {
-            dishNameFetch(dishNameInput.value)
+            dishNameFetch(dishNameInput.value);
         }
     });
 
@@ -102,14 +102,14 @@ function createRecipebyName(drinkButton, data) {
     }
 
     function dishIngredientFetch(ingredient) {
-        fetch("https://themealdb.com/api/json/v1/1/filter.php?i==" + ingredient).then(function (response) {
+        fetch("https://themealdb.com/api/json/v1/1/filter.php?i==" + ingredient).then(function (response){
             return response.json()
-        }).then(function (data) {
+        }).then(function(data){
             dishIngredient(data);
         });
     };
 
 
-    dishIngredientButton.addEventListener("click", function (event) {
+    dishIngredientButton.addEventListener("click", function (event){
         dishIngredientFetch(dishIngredientInput.value)
     });
