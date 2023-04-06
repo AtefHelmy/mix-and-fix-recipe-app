@@ -28,7 +28,12 @@ function dishName(data) {
 
     console.log(data);
 };
+<<<<<<< HEAD
 function createRecipebyName (mealButton, data) {
+=======
+
+function createRecipebyName(mealButton, data) {
+>>>>>>> f30b144eabf6f02788f22690b754609705e83e7a
 
 
     for (var i = 0; i < data.meals.length; i++) {
@@ -41,9 +46,14 @@ function createRecipebyName (mealButton, data) {
             meal2.strIngredient10, meal2.strIngredient11,
             meal2.strIngredient12, meal2.strIngredient13,
             meal2.strIngredient14, meal2.strIngredient15]
+<<<<<<< HEAD
             // maybe create an array of ingredient list instead of one variable of each ingredient?
             // maybe same logic for meaures ?
             ingredients = ingredients.filter(function(element){
+=======
+
+            ingredients = ingredients.filter(function(element) {
+>>>>>>> f30b144eabf6f02788f22690b754609705e83e7a
                 return element != null
             });
 
@@ -66,7 +76,8 @@ function createRecipebyName (mealButton, data) {
     }
         console.log(data)
     };
-
+    };
+};
 
     function dishNameFetch (name) {
         fetch("https://themealdb.com/api/json/v1/1/search.php?s=" + name).then(function (response) {
@@ -74,7 +85,6 @@ function createRecipebyName (mealButton, data) {
         }).then(function(data) {
             dishName(data);
         });
-        //createRecipebyName(data);
     };
 
 
@@ -92,7 +102,7 @@ function createRecipebyName (mealButton, data) {
             var dishbyIngredient = data.meals[i];
             var ingredients = dishbyIngredient.strMeal;
 
-            var optionList = document.createElement("li")
+            var optionList = document.createElement("button")
             optionList.textContent = ingredients;
             results.appendChild(optionList);
 
@@ -102,7 +112,11 @@ function createRecipebyName (mealButton, data) {
     }
 
     function dishIngredientFetch(ingredient) {
+<<<<<<< HEAD
         fetch("https://themealdb.com/api/json/v1/1/filter.php?i==" + ingredient).then(function (response){
+=======
+        fetch("https://themealdb.com/api/json/v1/1/filter.php?i=" + ingredient).then(function (response) {
+>>>>>>> f30b144eabf6f02788f22690b754609705e83e7a
             return response.json()
         }).then(function(data){
             dishIngredient(data);
@@ -113,3 +127,4 @@ function createRecipebyName (mealButton, data) {
     dishIngredientButton.addEventListener("click", function (event){
         dishIngredientFetch(dishIngredientInput.value)
     });
+    
