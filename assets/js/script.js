@@ -9,13 +9,35 @@ fetch(requestUrl)
 
 }
 
+var cocktailButton = document.querySelector("#cocktailButton")
+
+cocktailButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    document.location.assign('./drink.html')
+})
+
 var randomCocktailButton = document.querySelector("#luckyCocktail")
 
 randomCocktailButton.addEventListener("click", function(event) {
     event.preventDefault();
     document.location.assign('./drink.html')
-    results.appendChild("Hello");
 })
+
+var mealButton = document.querySelector("#mealbutton")
+
+mealButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    document.location.assign('./food.html')
+})
+
+var randomMealButton = document.querySelector("#luckyMeal")
+
+randomMealButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    document.location.assign('./food.html')
+})
+
+
 
 // function cocktailName(data) {
 
